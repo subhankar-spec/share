@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: text-share-portal
-    env: node
-    region: singapore
-    buildCommand: "npm install"
-    startCommand: "node server.js"
-    plan: free
