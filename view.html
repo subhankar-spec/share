@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Shared Text</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Shared Text</h1>
+        <p id="outputText"></p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        if (!id) {
+            document.getElementById("outputText").innerText = "Invalid link";
+        } else {
+            const data = localStorage.getItem("share_" + id);
+            if (!data) {
+                document.getElementById("outputText").innerText = "Text not found (Maybe deleted or different browser)";
+            } else {
+                document.getElementById("outputText").innerText = data;
+            }
+        }
+    </script>
+
+</body>
+</html>
